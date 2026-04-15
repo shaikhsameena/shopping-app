@@ -1,0 +1,88 @@
+.faq-container {
+  max-width: 1176px;
+  margin: auto;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ---------- Title Section ---------- */
+
+.faq-heading-wrapper {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.faq-top-title {
+  font-size: 0.85rem;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+
+.faq-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.faq-subtitle {
+  font-size: 1rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ---------- Accordion Section ---------- */
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.faq-item {
+  background-color: #fefefe;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.faq-item:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #333;
+}
+
+.faq-text {
+  flex: 1;
+}
+
+/* ✅ Arrow Icon Style */
+.arrow-icon svg {
+  stroke: #000;         /* black border */
+  fill: #fff;           /* white inside */
+  stroke-width: 2.2;
+  font-size: 1.6rem;
+  color: inherit;       /* prevent blue */
+}
+
+.faq-answer {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.6;
+  padding-left: 5px;
+}

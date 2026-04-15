@@ -1,0 +1,42 @@
+[
+  {
+    "_id": "1",
+    "Name": "Western Top",
+    "Price": "399",
+    "Delivery": "Upto 2 days",
+    "image": "/images/C.jpg",
+    "amazonLink": "https://www.amazon.in/LITZO-Regular-Stylish-Western-T-L-04-M/dp/B0DSKMDLRB/ref=sr_1_21?crid=2DV4XDISBOKNE&dib=eyJ2IjoiMSJ9.yGmqQhlmTt_IyheK-Rs6RXRxiVt-TQkGKBKYclQhN-agMxk1bScuWx7RMBIYTjVpgcFuvT1MHEZXBH0lA-KnnEYADgoY4n_wPJ6k-xMaYzwJniegXUvxt553VzB8d_SMPRFjCm8lA0sROVUOg9Q5PnwINKJ8K5MV-jNLhBOcjXOX4RoT5-W3MxLQd8GG2JjLFbM8lsYKhTQp-GqogqBqnqDyy-Umt1woiYlgh1u_xQ8SNCAKlP3Z8DDrDHaz4ZP5faMtPJpS78Qw8_15U_2KXf15H_dyS8h_kfhpqUjqdw4.TYsTzA82IoNXwV7oHE1-L7zfZTk764CUyEk_CNbUl3M&dib_tag=se&keywords=womens%2Bformal%2Bwear%2Bfor%2Boffice&qid=1760030578&sprefix=womens%2Bformal%2Bw%2Caps%2C286&sr=8-21&th=1&psc=1",
+    "Reviews": [
+      { "Rating": 4 },
+      { "Rating": 4 },
+      { "Rating": 4 }
+    ]
+  },
+  {
+    "_id": "2",
+    "Name": "Sleeve Shirt",
+    "Price": "499",
+    "Delivery": "Upto 3-5 days",
+   "image": "/images/H1.jpg",
+   "amazonLink": "https://www.amazon.in/DEELMO-Casual-Button-Fashion-Textured/dp/B0D4MCTRZS/ref=sr_1_11_sspa?crid=34PMRECKVON7W&dib=eyJ2IjoiMSJ9.aEa6CiH0wJVO7oG4pp8s5FU0H5cFhrfp5KEHU_fjojIPNbG6U5GKNofOSZpocIKPiufTS5cyiWnL4c2BRAVvIiJju15obGnJkVQ-TOxmnxzVu2rM9BSQNfQvEbZj5aBerZyEpHf2Q86f84RNREbMxPtWfA0JKqKOGE4yUapxZmq1UuKDyFpp49S1KmjghRSLElREYroK2LW3dnLKDLkQyNNpGLDCI9TB2ixyf8uDLyvlSLVWI5_5lEF-CBm29wzqW2-C8J8FKLy23sEHzGaMVbGkPOpVWvtBKfB9qs_NbjQ.YYUjT1aYmOQieny3tG1Ax7-qwNVIEa7o747Ss9dQ6aM&dib_tag=se&keywords=men%2Bshirts&qid=1760031622&sprefix=men%2Bsir%2Caps%2C266&sr=8-11-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9tdGY&th=1&psc=1",
+    "Reviews": [
+      { "Rating": 5 },
+      { "Rating": 5 },
+      { "Rating": 4 }
+    ]
+  },
+  {
+    "_id": "3",
+    "Name": "Kurti",
+    "Price": "721",
+    "Delivery": "Upto 2 days",
+    "image": "/images/p4.jpg",
+    "amazonLink": "https://www.amazon.in/PARTHVI-Printed-Handwork-Dupatta-P-1079-Purple-S/dp/B0F5PVZNQW/ref=sr_1_24?crid=10ZZR2NEWW66I&dib=eyJ2IjoiMSJ9.JgjtTcXMBAIRza9r9z9QxSPE-hOBW1kxJufmulDrlBvtM6XlkrMY9jssYlUY6fy0e3GudFDGXryktZcxLmpIapeo20IyE5F-S7xOl1Tt2VqEHVip_jmt8TPKkcNVR_DK5O-kukG6eObqUWojsElDz-3tg7ioHC3h_agt-XWJpEH_G32pyVYTk7f4GsGf4P_0Mxd3QlNJS90ELwD2Y_S3xSaBoVCvB9yP8iHS_nSVGjCVEQsUqTMsC3xQVEfRx4IMN8Koj4Z7L1tUvLEA8vg0IfH-i7ef80MFAJ-_wWYwaXc.SUZj2VI-mxQ3LayJ5SrCYADxXGYq-eE2gEY_RYqtlF0&dib_tag=se&keywords=womens%2Bdresses&qid=1760029488&sprefix=women%2Caps%2C1113&sr=8-24&th=1&psc=1",
+    "Reviews": [
+      { "Rating": 5 },
+      { "Rating": 5 }
+    ]
+  }
+ 
+  
+]

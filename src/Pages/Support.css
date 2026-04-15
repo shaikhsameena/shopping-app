@@ -1,0 +1,228 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+}
+
+.support-section {
+  padding: 100px 80px;
+  background: #f9f9f9;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.support-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #01193D;
+}
+
+.support-description {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #01193D;
+}
+
+.support-options {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.support-option {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex: 1;
+  max-width: 350px;
+  transition: transform 0.3s ease;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.support-option:hover {
+  transform: translateY(-10px);
+}
+
+.support-option i {
+  font-size: 40px;
+  color: #01193D;
+  margin-bottom: 20px;
+}
+
+.support-option h3 {
+  font-size: 24px;
+  color: #01193D;
+  margin-bottom: 10px;
+}
+
+.support-option p {
+  font-size: 16px;
+  color: #01193D;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  line-height: 1.5;
+  padding: 0 10px;   /* ✅ left padding hata diya, thoda side safe space */
+  word-wrap: break-word;  /* ✅ lambi line break ho jayegi */
+  overflow-wrap: break-word;
+  text-align: center;  /* ✅ mobile pe center aligned dikhne ke liye */
+}
+
+
+.support-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #01193D;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: background 0.3s;
+  white-space: nowrap;
+}
+
+.support-btn:hover {
+  background-color: #02255a;
+}
+
+.nav-btn {
+  display: inline-block;
+  padding: 10px 25px;
+  background-color: #01193D;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  font-size: 18px;
+  margin: 20px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.nav-btn:hover {
+  background-color: #02255a;
+}
+
+/* ✅ Responsive Styles */
+
+/* Tablets (max-width: 992px) */
+@media (max-width: 992px) {
+  .support-section {
+    padding: 80px 40px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .support-description {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .support-options {
+    gap: 20px;
+  }
+
+  .support-option {
+    max-width: 100%;
+  }
+}
+
+/* Mobiles (max-width: 768px) */
+@media (max-width: 768px) {
+  .support-section {
+    padding: 60px 20px;
+  }
+
+  .section-title {
+    font-size: 24px;
+    text-align: center;
+    
+  }
+
+  .support-description {
+    font-size: 10px;
+    padding: 10px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 20px;
+  }
+
+  .support-options {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .support-option {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+
+  .support-option h3 {
+    font-size: 20px;
+  }
+
+  .support-option p {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  .support-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .nav-btn {
+    font-size: 16px;
+    padding: 8px 20px;
+    margin: 10px;
+  }
+}
+
+/* Extra Small Devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 20px;
+  }
+
+  .support-description {
+    font-size: 14px;
+  }
+
+  .support-option {
+    padding: 15px;
+  }
+
+  .support-option h3 {
+    font-size: 18px;
+  }
+
+  .support-option p {
+    font-size: 13px;
+  }
+
+  .support-btn {
+    font-size: 13px;
+    padding: 8px 18px;
+  }
+
+  .nav-btn {
+    font-size: 14px;
+    padding: 7px 16px;
+  }
+}

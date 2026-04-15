@@ -1,0 +1,217 @@
+
+
+
+
+/* ===== Section wrapper ===== */
+.pp-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 90px 20px 70px;
+  text-align: center;
+}
+
+.pp-discover {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 4px;
+  letter-spacing: .2px;
+}
+
+.pp-title {
+  font-size: 44px;
+  font-weight: 700;
+  color: #0a1931;
+  margin-bottom: 14px;
+}
+
+.pp-tagline {
+  font-size: 16px;
+  color: #667085;
+  max-width: 640px;
+  margin: 0 auto 72px;
+}
+
+/* ===== Products grid (3 columns, fixed gaps) ===== */
+.pp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 64px 90px;     /* row gap | column gap */
+  justify-items: start;   /* align each item left within column */
+  margin-bottom: 72px;
+}
+
+/* ===== Individual item (image left, details right) ===== */
+.pp-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;              /* space between img & info */
+}
+
+/* image placeholder box 128×128 */
+.pp-imgBox {
+  position: relative;
+  width: 128px;
+  height: 150px;
+  background: #eef2f6;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.pp-imgBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* badge + heart inside image box */
+.pp-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #6b7280;
+}
+.pp-heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  color: #c0c6d1;
+  cursor: pointer;
+  transition: color .2s;
+}
+.pp-heart:hover { color: #e63946; }
+
+/* details column */
+.pp-info { text-align: left; }
+
+.pp-cat  { font-size: 12px; color: #6b7280; }
+.pp-name { font-size: 16px; font-weight: 600; color: #1f2937; margin: 2px 0 10px; }
+
+.pp-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.pp-rating .fa-star { color: #f2c94c; }
+.pp-reviews {
+  color: #2563eb;
+  text-decoration: none;
+}
+.pp-reviews:hover { text-decoration: underline; }
+
+.pp-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0a1931;
+}
+
+/* ===== See More button ===== */
+.pp-seeMore {
+  display: block;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 16px 0;
+  color: #0a1931;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .3s;
+  background-color: transparent;
+  border: 1px solid #0a1931;
+    
+    border-radius: 20px;
+    
+  
+   
+    transition: all 0.3s;
+
+}
+
+
+
+.pp-buyBtn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 14px;
+  background: #01193D; /* Amazon orange */
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.pp-buyBtn:hover {
+  background: #01193D;
+}
+
+/* जब stock न हो */
+.out-of-stock .pp-buyBtn {
+  background: #afa4a4;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+
+
+
+
+
+
+
+
+.pp-seeMore:hover { background: #0a1931; color: #fff; }
+
+/* ===== PHONE (≤600px): 2 cards per row ===== */
+@media (max-width: 600px) {
+  .pp-wrapper { padding: 40px 14px 28px; }
+
+  .pp-title { font-size: 24px; }
+  .pp-tagline { font-size: 14px; margin-bottom: 24px; }
+  .pp-tagline br { display: none; }
+
+  /* 🔥 2 columns on phone */
+  .pp-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;                   /* row/column gap */
+    justify-items: stretch;      /* stretch items to cell width */
+  }
+
+  /* Card look for each item */
+  .pp-item {
+    width: 100%;
+    flex-direction: column;      /* image on top */
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.05);
+    background: #fff;
+  }
+
+  .pp-imgBox { width: 140px; height: 140px; margin: 0 auto; }
+  .pp-info   { text-align: center; }
+  .pp-rating { justify-content: center; }
+  .pp-buyBtn { width: 100%; padding: 10px 12px; border-radius: 10px; }
+
+  .pp-seeMore { max-width: 420px; }
+}
+
+/* ===== Very small phones (≤380px) — still 2 columns, just smaller image/text ===== */
+@media (max-width: 380px) {
+  .pp-imgBox { width: 120px; height: 120px; }
+  .pp-name   { font-size: 15px; }
+  .pp-price  { font-size: 16px; }
+}
+

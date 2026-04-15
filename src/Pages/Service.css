@@ -1,0 +1,173 @@
+#services {
+  padding: 100px 80px;
+  background: #f8f9fb;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.section-heading, 
+.section-title {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #01193D; /* changed */
+}
+
+.services-grid {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.service-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+}
+
+.service-card i {
+  font-size: 40px;
+  color: #01193D; /* changed */
+  margin-bottom: 20px;
+}
+
+.service-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #01193D; /* changed */
+}
+
+.service-card p {
+  font-size: 16px;
+  color: #01193D; /* changed */
+  padding-left: 50px;
+}
+
+/* Buttons */
+.nav-btn,
+.back-btn {
+  display: inline-block;
+  padding: 10px 25px;
+  background-color: #01193D; /* changed */
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  font-size: 18px;
+  margin: 20px;
+  text-align: center;
+}
+
+.nav-btn:hover,
+.back-btn:hover {
+  background-color: #02255a; /* darker shade for hover */
+}
+
+
+
+/* ========== Responsive Media Queries ========== */
+
+/* Tablet screens (max-width: 1024px) */
+@media (max-width: 1024px) {
+  #services {
+    padding: 80px 40px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .services-grid {
+    gap: 30px;
+  }
+
+  .service-card {
+    padding: 25px;
+  }
+
+  .service-card p {
+    padding-left: 20px; /* Reduce left padding */
+  }
+}
+
+/* Mobile screens (max-width: 768px) */
+@media (max-width: 768px) {
+  #services {
+    padding: 60px 20px;
+  }
+
+  .section-title {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr; /* single column */
+    gap: 20px;
+  }
+
+  .service-card {
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+  .service-card i {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+
+  .service-card h3 {
+    font-size: 18px;
+  }
+
+  .service-card p {
+    font-size: 14px;
+    padding-left: 0; /* Remove left padding for mobile */
+  }
+
+  .nav-btn,
+  .back-btn {
+    font-size: 16px;
+    padding: 8px 20px;
+    margin: 10px;
+  }
+}
+
+/* Extra small screens (max-width: 480px) */
+@media (max-width: 480px) {
+  #services {
+    padding: 40px 15px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+
+  .service-card {
+    padding: 15px;
+  }
+
+  .service-card i {
+    font-size: 28px;
+  }
+
+  .service-card h3 {
+    font-size: 16px;
+  }
+
+  .service-card p {
+    font-size: 13px;
+  }
+
+  .nav-btn,
+  .back-btn {
+    font-size: 14px;
+    padding: 6px 16px;
+  }
+}

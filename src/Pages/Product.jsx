@@ -1,11 +1,11 @@
 
 
 
-
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
+import { addToWishlist, removeFromWishlist } from "../redux/wishlistSlice";
 import "./Product.css";
 import productsData from "../Data/Products.json";
 
@@ -65,9 +65,11 @@ const Product = () => {
   const [sortOption, setSortOption] = useState("Popularity");
 
   const location = useLocation();
+  const navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
   const searchTerm = searchParams.get("search")?.toLowerCase() || "";
   const dispatch = useDispatch();
+  const wishlistItems = useSelector((state) => state.wishlist.products);
 
  
   useEffect(() => {
@@ -76,6 +78,36 @@ const Product = () => {
 
   const handleRatingClick = (rating) => {
     setRatingFilter(rating === ratingFilter ? null : rating);
+  };
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart({
+      id: product._id,
+      Name: product.Name,
+      Price: product.Price,
+      image: product.image,
+      quantity: 1,
+    }));
+    alert(`${product.Name} added to cart!`);
+    navigate('/buy'); // Navigate to buy page after adding
+  };
+
+  const handleLikeToggle = (product) => {
+    const isLiked = wishlistItems.some((item) => item.id === product._id);
+    if (isLiked) {
+      dispatch(removeFromWishlist(product._id));
+    } else {
+      dispatch(addToWishlist({
+        id: product._id,
+        Name: product.Name,
+        Price: product.Price,
+        image: product.image,
+      }));
+    }
+  };
+
+  const isProductLiked = (productId) => {
+    return wishlistItems.some((item) => item.id === productId);
   };
 
   const filteredProducts = products
@@ -224,27 +256,64 @@ const Product = () => {
 
               return (
                 <div key={product._id} className="product-card">
-                  <img src={product.image} alt={product.Name} />
+                  <div style={{ position: "relative" }}>
+                    <img src={product.image} alt={product.Name} />
+                    <button
+                      onClick={() => handleLikeToggle(product)}
+                      style={{
+                        position: "absolute",
+                        top: "10px",
+                        right: "10px",
+                        background: "white",
+                        border: "none",
+                        borderRadius: "50%",
+                        width: "36px",
+                        height: "36px",
+                        cursor: "pointer",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+                      }}
+                      title={isProductLiked(product._id) ? "Remove from wishlist" : "Add to wishlist"}
+                    >
+                      <i
+                        className={`fas fa-heart`}
+                        style={{
+                          color: isProductLiked(product._id) ? "#ff6b6b" : "#ccc",
+                          fontSize: "18px",
+                        }}
+                      />
+                    </button>
+                  </div>
                   <p className="name">{product.Name}</p>
                   <h4>₹{product.Price}</h4>
                   <div className="rating">
                     ⭐ {avgRating.toFixed(1)} ({totalReviews} review
                     {totalReviews !== 1 ? "s" : ""})
                   </div>
-  <button
-  onClick={() => {
-    if (product.amazonLink) {
-      window.open(product.amazonLink, "_blank"); 
-    } else {
-      alert("Amazon link not available for this product");
-    }
-  }}
-  className="add-to-cart-btn"
->
-  Buy on Amazon
-</button>
-
-
+                  <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
+                    <button
+                      onClick={() => handleAddToCart(product)}
+                      className="add-to-cart-btn"
+                      style={{ flex: 1 }}
+                    >
+                      Add to Cart
+                    </button>
+                    <button
+                      onClick={() => {
+                        if (product.amazonLink) {
+                          window.open(product.amazonLink, "_blank");
+                        } else {
+                          alert("Amazon link not available for this product");
+                        }
+                      }}
+                      className="add-to-cart-btn"
+                      style={{ flex: 1, background: "#4CAF50" }}
+                    >
+                      Buy on Amazon
+                    </button>
+                  </div>
                 </div>
               );
             })}

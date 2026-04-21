@@ -13,6 +13,8 @@ import Service from './Pages/Service';
 import Product from './Pages/Product';
 import Support from './Pages/Support';
 import Contact from './Pages/Contact';
+import Wishlist from './Pages/Wishlist';
+import Buy from './Pages/Buy';
 import { store } from './redux/store';
 import { Provider } from "react-redux";
 
@@ -34,6 +36,8 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/service" element={<Service />} />
               <Route path="/product" element={<Product />} />
+              <Route path="/buy" element={<Buy />} />
+              <Route path="/wishlist" element={<Wishlist />} />
               <Route path="/support" element={<Support />} />
               <Route path="/contact" element={<Contact />} />
               

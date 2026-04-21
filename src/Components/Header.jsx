@@ -3,26 +3,14 @@ import { useSelector } from "react-redux";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import "./Header.css";
 
-const DisabledIcon = ({ className = "", title = "", children }) => (
-  <span
-    className={`icon-btn disabled-icon ${className}`}
-    title={title}
-    aria-disabled="true"
-    tabIndex={-1}
-  >
-    {children}
-  </span>
-);
-
-
-
 const Header = () => {
   const [showScrollBtn, setShowScrollBtn] = useState(false);
   const [showHelpHint, setShowHelpHint] = useState(true);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-  const [searchInput] = useState("");
+  const [searchInput, setSearchInput] = useState("");
 
   const cartCount = useSelector((state) => state.cart.products.length);
+  const wishlistCount = useSelector((state) => state.wishlist.products.length);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -32,6 +20,22 @@ const Header = () => {
     } else {
       navigate("/");
     }
+  };
+
+  const handleSearch = (e) => {
+    if (e.key === "Enter" && searchInput.trim()) {
+      navigate(`/product?search=${encodeURIComponent(searchInput)}`);
+      setSearchInput("");
+    }
+  };
+
+  const handleCartClick = () => {
+    navigate("/buy");
+  };
+
+  const handleWishlistClick = () => {
+    // Navigate to a wishlist page (you can create this page later)
+    navigate("/wishlist");
   };
 
   useEffect(() => {
@@ -121,24 +125,43 @@ const Header = () => {
             <div className="search-box">
               <input
                 type="text"
-                placeholder="Search disabled"
+                placeholder="Search products..."
                 value={searchInput}
-                onChange={() => {}}
-                onKeyDown={(e) => e.preventDefault()}
-                disabled
+                onChange={(e) => setSearchInput(e.target.value)}
+                onKeyDown={handleSearch}
               />
               <i className="fas fa-search search-icon" />
             </div>
 
            
-            <DisabledIcon title="Wishlist (disabled)">
-              <i className="fas fa-heart" />
-            </DisabledIcon>
+            <button
+              className="icon-btn"
+              title="Wishlist"
+              onClick={handleWishlistClick}
+              style={{ background: "none", border: "none", cursor: "pointer", fontSize: "18px" }}
+            >
+              <i className="fas fa-heart" style={{ color: wishlistCount > 0 ? "#ff6b6b" : "inherit" }} />
+              {wishlistCount > 0 && (
+                <span style={{ marginLeft: "4px", fontSize: "12px", color: "#ff6b6b" }}>
+                  {wishlistCount}
+                </span>
+              )}
+            </button>
 
            
-            <DisabledIcon className="cart-icon" title="Cart (disabled)">
+            <button
+              className="cart-icon"
+              title="Cart"
+              onClick={handleCartClick}
+              style={{ background: "none", border: "none", cursor: "pointer", fontSize: "18px" }}
+            >
               <i className="fas fa-shopping-cart" />
-            </DisabledIcon>
+              {cartCount > 0 && (
+                <span style={{ marginLeft: "4px", fontSize: "12px", color: "#ff6b6b" }}>
+                  {cartCount}
+                </span>
+              )}
+            </button>
           </div>
         </header>
       </div>
@@ -166,25 +189,37 @@ const Header = () => {
           <div className="search-box ">
             <input
               type="text"
-              placeholder="Search disabled"
+              placeholder="Search products..."
               value={searchInput}
-              onChange={() => {}}
-              onKeyDown={(e) => e.preventDefault()}
-              
+              onChange={(e) => setSearchInput(e.target.value)}
+              onKeyDown={handleSearch}
             />
             <i className="fas fa-search search-icon" />
           </div>
 
           <div className="mobile-icons">
-            <div title="Wishlist (disabled)">
-              <i className="fas fa-heart" />
-              </div>
+            <button
+              title="Wishlist"
+              onClick={handleWishlistClick}
+              style={{ background: "none", border: "none", cursor: "pointer", fontSize: "18px" }}
+            >
+              <i className="fas fa-heart" style={{ color: wishlistCount > 0 ? "#ff6b6b" : "inherit" }} />
+            </button>
             
 
-            <DisabledIcon className="cart-icon" title="Cart (disabled)">
+            <button
+              className="cart-icon"
+              title="Cart"
+              onClick={handleCartClick}
+              style={{ background: "none", border: "none", cursor: "pointer", fontSize: "18px" }}
+            >
               <i className="fas fa-shopping-cart" />
-            
-            </DisabledIcon>
+              {cartCount > 0 && (
+                <span style={{ marginLeft: "4px", fontSize: "12px", color: "#ff6b6b" }}>
+                  {cartCount}
+                </span>
+              )}
+            </button>
           </div>
         </div>
 

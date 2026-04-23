@@ -9,54 +9,6 @@ import { addToWishlist, removeFromWishlist } from "../redux/wishlistSlice";
 import "./Product.css";
 import productsData from "../Data/Products.json";
 
-
-const InfoCards = () => {
-  return (
-    <section style={styles.section} >
-      <div style={styles.grid} className="abc">
-        <div style={styles.card}>
-          <div style={styles.iconWrapper}>
-            <i className="fas fa-truck" style={styles.icon}></i>
-          </div>
-          <h3 style={styles.title}>Free <br /> Shipping</h3>
-          <p style={styles.desc}>Enjoy free shipping on all orders</p>
-        </div>
-        <div style={styles.card}>
-          <div style={styles.iconWrapper}>
-            <i className="fas fa-shield-alt" style={styles.icon}></i>
-          </div>
-          <h3 style={styles.title}>Secure <br /> Payments</h3>
-          <p style={styles.desc}>We follow top-level data security</p>
-        </div>
-        <div style={styles.card}>
-          <div style={styles.iconWrapper}>
-            <i className="fas fa-rotate" style={styles.icon}></i>
-          </div>
-          <h3 style={styles.title}>Moneyback <br /> Guarantee</h3>
-          <p style={styles.desc}>Full refund to your original payment method</p>
-        </div>
-        <div style={styles.card}>
-          <div style={styles.iconWrapper}>
-            <i className="fas fa-user" style={styles.icon}></i>
-          </div>
-          <h3 style={styles.title}>Customer <br /> Support</h3>
-          <p style={styles.desc}>We help with any questions or concerns</p>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const styles = {
-  section: { width: "100%", margin: "90px 120px 10px", padding: "0px", boxSizing: "border-box" },
-  grid: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "62px", width: "100%", maxWidth: "1200px" },
-  card: { textAlign: "left" },
-  iconWrapper: { borderRadius: "14px", width: "64px", height: "64px", display: "flex", justifyContent: "center", alignItems: "center", marginBottom: "16px" },
-  icon: { fontSize: "52px", color: "#0a1931" },
-  title: { fontSize: "20px", fontWeight: "700", color: "#0a1931", lineHeight: "1.3", marginBottom: "8px" },
-  desc: { fontSize: "14px", color: "#6b7280", lineHeight: "1.6" }
-};
-
 const Product = () => {
   const [products, setProducts] = useState([]);
   const [priceRange, setPriceRange] = useState(1000);
@@ -321,7 +273,6 @@ const Product = () => {
         </div>
       </div>
 
-      <InfoCards />
       
     </div>
     

@@ -5,16 +5,6 @@ import {
   FaFacebook, FaInstagram, FaWhatsapp, FaPhoneAlt
 } from "react-icons/fa";
 
-const RECEIVER_EMAIL = "shaikhsameena995@gmail.com";
-
-const ACCESS_KEY =
-  import.meta?.env?.VITE_8310746852_ACCESS_KEY ||
-  "a56e3c3e-ea70-4a7e-a06b-0b9753d4f4e8";
-
-const isUUID = (k) =>
-  /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
-    k
-  );
 
 const Contact = () => {
   const formRef = useRef();
@@ -27,41 +17,15 @@ const Contact = () => {
   };
   const hidePopup = () => setPopup({ show: false, msg: "" });
 
-  const buildSubject = (name, email) =>
-    ` Contact: ${name} (${email})`;
-
- 
-  const buildBody = (name, email, message) => 
-`Hi  Support,
-
-Here is what i need help with, 
-
-Message Body :
-${message}
-
-Here is my contact 
-
-Name : ${name}
-Email : ${email}
-
-
-Thanks,
- Support.`;
-
-  const sendDirect = async (e) => {
+  const sendDirect = (e) => {
     e.preventDefault();
     if (sending) return;
-
-    if (!isUUID(ACCESS_KEY)) {
-      showPopup("❌ Invalid Web3Forms Access Key.");
-      return;
-    }
 
     const fd = new FormData(formRef.current);
     const name = (fd.get("user_name") || "").toString().trim();
     const email = (fd.get("user_email") || "").toString().trim();
     const message = (fd.get("message") || "").toString().trim();
-    const website = (fd.get("website") || "").toString().trim(); 
+    const website = (fd.get("website") || "").toString().trim();
 
     if (website) return;
     if (!name || !email || !message) {
@@ -69,37 +33,36 @@ Thanks,
       return;
     }
 
-    fd.set("access_key", ACCESS_KEY);
-    fd.set("to", RECEIVER_EMAIL);
-    fd.set("from_name", " Contact Form");
-    fd.set("subject", buildSubject(name, email));
-    fd.set("message", buildBody(name, email, message));
-    fd.set("name", name);
-    fd.set("email", email);
-    fd.set("replyto", email);
-    if (!fd.has("botcheck")) fd.set("botcheck", "");
+    const submission = {
+      name,
+      email,
+      message,
+      submittedAt: new Date().toISOString(),
+    };
+
+    const stored = localStorage.getItem("contactMessages");
+    const messages = stored ? JSON.parse(stored) : [];
+    messages.push(submission);
+    localStorage.setItem("contactMessages", JSON.stringify(messages, null, 2));
+
+    const blob = new Blob([JSON.stringify(submission, null, 2)], {
+      type: "application/json",
+    });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `contact-message-${Date.now()}.json`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
 
     setSending(true);
-    try {
-      const res = await fetch("shaikhsameena995@gmail.com", {
-        method: "POST",
-        body: fd,
-      });
-      const data = await res.json();
-
-      if (data.success) {
-        showPopup(" Massage has been sent,  helpdesk will reach out to you soon !");
-        formRef.current.reset();
-      } else {
-        console.error("Web3Forms error:", data);
-        showPopup(`❌ Could not send: ${data.message || "Unknown error"}`);
-      }
-    } catch (err) {
-      console.error("Web3Forms send error:", err);
-      showPopup("❌ Could not send message. Please try again later.");
-    } finally {
+    setTimeout(() => {
+      showPopup("✅ Message saved to local storage and downloaded as JSON.");
+      formRef.current.reset();
       setSending(false);
-    }
+    }, 500);
   };
 
   return (
@@ -157,7 +120,7 @@ Thanks,
 
           <div className="social-links">
             <a href="#"><FaFacebook /> Facebook</a>
-            <a href="https://www.instagram.com/shaik_ayra01/"><FaInstagram /> Instagram</a>
+            <a href="https://www.instagram.com"><FaInstagram /> Instagram</a>
             <a href="https://wa.me/918310746852" target="_blank" rel="noopener noreferrer">
               <FaWhatsapp /> WhatsApp
             </a>

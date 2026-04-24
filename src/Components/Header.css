@@ -89,7 +89,7 @@ body { padding-top: 96px; }
   .hamburger-btn.open span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
   .hamburger-btn.open span{ background: var(--brand); }
 
-  .mobile-header .logo img{ height:30px; }
+  .mobile-header .logo img{ height:44px; }
 
   
   .mobile-header .search-box{

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
-import Logo from "../assets/logo.png";
 import "./Header.css";
 
 const Header = () => {
@@ -103,7 +102,7 @@ const Header = () => {
       <div className="sticky-wrapper desktop-header">
         <header className="main-header">
           <div className="logo" onClick={handleLogoClick}>
-            <img src={Logo} alt="logo" />
+            <img src="/shopify-logo.png" alt="Shopify logo" />
           </div>
 
           <nav className="nav-links">
@@ -184,7 +183,7 @@ const Header = () => {
           </button>
 
           <div className="logo" onClick={handleLogoClick}>
-            <img src={Logo} alt="logo" />
+            <img src="/shopify-logo.png" alt="Shopify logo" />
           </div>
 
           <div className="search-box ">

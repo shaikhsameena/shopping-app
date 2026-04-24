@@ -43,10 +43,10 @@ const Footer = () => {
          
            <strong> MJ AND SRJ TRADING</strong><br/>
             <p className="text">
-            NUTAN VASHAT,<br />
+            
             Ameerpet, hyderabad,<br />
             Telangana, India<br />
-            8149829233
+            8310746852
           </p>
         </div>
       </div>
@@ -56,11 +56,7 @@ const Footer = () => {
         <p>© All rights reserved</p>
 
         <div className="payment-logos">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png"
-            alt="Visa"
-            width="50"
-          />
+         
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png"
             alt="Mastercard"
@@ -72,10 +68,10 @@ const Footer = () => {
  <div className="footer-icons">
 
   <a
-    href="https://www.facebook.com/profile.php?id=61578060466582"
+    href="https://www.facebook.com"
     target="_blank"
     rel="noopener noreferrer"
-    aria-label="MSFORT on Facebook"
+    
     title="Facebook"
   >
     <i className="fab fa-facebook-f"></i>
@@ -83,10 +79,10 @@ const Footer = () => {
 
 
   <a
-    href="https://x.com/msfort_official"
+    href="https://x.com"
     target="_blank"
     rel="noopener noreferrer"
-    aria-label="MSFORT on X"
+    
     title="X (Twitter)"
   >
     <i className="fab fa-x-twitter"></i>
@@ -94,10 +90,10 @@ const Footer = () => {
 
 
   <a
-    href="https://www.instagram.com/msfort_official/"
+    href="https://www.instagram.com"
     target="_blank"
     rel="noopener noreferrer"
-    aria-label="MSFORT on Instagram"
+    
     title="Instagram"
   >
     <i className="fab fa-instagram"></i>

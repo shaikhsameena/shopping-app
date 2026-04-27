@@ -41,7 +41,7 @@ const Footer = () => {
         <div className="footer-right">
           <h4 className="address-title">Registered Office Address</h4>
          
-           <strong> MJ AND SRJ TRADING</strong><br/>
+           <strong> Shopify collections</strong><br/>
             <p className="text">
             
             Ameerpet, hyderabad,<br />
